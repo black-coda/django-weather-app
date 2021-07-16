@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Weather-Forecast</title>
+  </head>
+  <body>
+      <div class="container-md">
+        <div class="row">
+            <div class="col">
+                <h1>Weather-App</h1>
+                <p>Result your weather condition</p>
+                    <form method="POST">
+                        {% csrf_token%}
+
+                        <div class="input-group mb-3">
+                            
+                            <input type="text" name="city" class="form-control" placeholder="City Name" aria-label="city" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-light" type="submit" id="button-addon2">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg></i></span></i> 
+                            </button>
+                        </div>
+                    </form>
+                    
+                <div id="info-container">
+                    {%if country_code and coordinate and temp and pressure and humidity%}
+                        <div class="container">
+                            <table class="table table table-borderless align-item-center table-dark table-striped">
+                                <thead>
+                                  <tr>
+                                    {{city.name}}
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">country code </th>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{country_code}}</td>
+                                    
+                                
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">coordinate</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{coordinate}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">temp</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{temp}}</td>
+                                    
+                                  </tr>
+
+                                  <tr>
+                                    <th scope="row">pressure</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{pressure}}</td>
+                                  </tr>
+
+                                  <tr>
+                                    <th scope="row">humidity</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{humidity}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+
+
+      </div>
+    
+      <style>
+          body{
+              margin-top:30px ;
+              background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/2f/Clouds.gif);
+              background-repeat:no-repeat ;
+              background-size: cover;
+              box-sizing: border-box;
+              width: 100vw;
+              height: 100vh;
+              overflow: hidden;
+              font-family: viaoda_libre;
+
+          }
+          h1{
+              text-align: center;
+              font-variant: small-caps;
+              font-family: benne;
+              font-size: 50px;
+              color: white;
+          }
+          p{
+              font-size: 10px;
+              text-align: center;
+              margin-top: 0;
+              color: white;
+          }
+          table{
+              text-align: center;
+          }
+
+          #button-addon2:hover{
+            box-shadow: blue ;
+          }
+
+         
+
+      </style>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
