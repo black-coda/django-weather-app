@@ -21,7 +21,7 @@ def index(request):
         except URLError:
             data = ""
             
-        # converting json data to a dictionary
+        # converting json data to a python dictionary
 
         #assigning list od data to json file
         list_of_data = json.loads(source)
